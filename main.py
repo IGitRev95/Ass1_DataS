@@ -7,6 +7,7 @@ def main():
 
 
 def ex1():
+    # Eq.(1)
     mat_a = np.asmatrix([[2, 1, 2],
                          [1, -2, 1],
                          [1, 2, 3],
@@ -15,7 +16,9 @@ def ex1():
                         [1],
                         [5],
                         [2]])
+    # ex1.a
     ex1a(mat_a, vec_b)
+    # ex1.c
     ex1c(mat_a, vec_b)
 
 
