@@ -18,8 +18,13 @@ def ex1():
                         [2]])
     # ex1.a
     ex1a(mat_a, vec_b)
+    print()
     # ex1.c
     ex1c(mat_a, vec_b)
+    print()
+    # ex1.d
+    ex1d(mat_a, vec_b)
+    print()
 
 
 def ex1a(matrix_a: np.matrix, vector_b: np.asarray):
@@ -49,6 +54,21 @@ def weighted_least_squares(matrix_a: np.matrix, vector_b: np.asarray, weights_ma
         ans_vector = np.linalg.inv(matrix_a.T @ weights_matrix @ matrix_a) @ matrix_a.T @ weights_matrix @ vector_b
     except:
         print("(A.T @ W @ A) is a Singular matrix therefore not invertible")
+
+    print("x = \n {}".format(ans_vector))
+    print("r = Ax - b = \n {}".format(((matrix_a @ ans_vector) - vector_b)))
+
+
+def ex1d(matrix_a: np.matrix, vector_b: np.asarray):
+    print("Tikhonov regularization least squares - ex1.d")
+    tikhonov_least_squares(matrix_a, vector_b, 0.1)
+
+
+def tikhonov_least_squares(matrix_a: np.matrix, vector_b: np.asarray, lambda_val: float):
+    matrix_lambda = np.eye(3) @ np.asarray([[lambda_val],
+                                            [lambda_val],
+                                            [lambda_val]])
+    ans_vector = np.linalg.inv((matrix_a.T @ matrix_a) + matrix_lambda) @ matrix_a.T @ vector_b
 
     print("x = \n {}".format(ans_vector))
     print("r = Ax - b = \n {}".format(((matrix_a @ ans_vector) - vector_b)))
