@@ -65,9 +65,7 @@ def ex1d(matrix_a: np.matrix, vector_b: np.asarray):
 
 
 def tikhonov_least_squares(matrix_a: np.matrix, vector_b: np.asarray, lambda_val: float):
-    matrix_lambda = np.eye(3) @ np.asarray([[lambda_val],
-                                            [lambda_val],
-                                            [lambda_val]])
+    matrix_lambda = np.eye(3) * lambda_val
     ans_vector = np.linalg.inv((matrix_a.T @ matrix_a) + matrix_lambda) @ matrix_a.T @ vector_b
 
     print("x = \n {}".format(ans_vector))
