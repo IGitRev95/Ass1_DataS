@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def main():
@@ -71,7 +70,7 @@ def tikhonov_least_squares(matrix_a: np.matrix, vector_b: np.asarray, lambda_val
 
 
 def ex3():
-    print("Results - ex3.c")
+    print("Results - ex3.c - The D Matrix:")
     mat_a = np.asarray([[5, 6, 7, 8],
                         [1, 3, 5, 4],
                         [1, 0.5, 4, 2],
